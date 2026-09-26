@@ -110,6 +110,59 @@ This project provided practical experience with:
 * Automated security notifications
 * PowerShell-based API testing
 
+## Screenshots
+
+### n8n Workflow
+
+![n8n Workflow](screenshots/workflow.png)
+
+### Telegram Security Notification
+
+![Telegram Notification](screenshots/telegram-notification.png)
+
+## Testing
+
+The workflow was tested by sending an IP address to the n8n Webhook using PowerShell.
+
+### Example Request
+
+```powershell
+Invoke-RestMethod -Method POST `
+  -Uri "https://your-n8n-instance/webhook/security-alert" `
+  -ContentType "application/json" `
+  -Body '{"ip":"8.8.8.8"}'
+```
+
+### Test Result
+
+The workflow successfully:
+
+1. Received the IP address through the n8n Webhook.
+2. Queried the submitted IP address using the VirusTotal API.
+3. Retrieved malicious and suspicious detection statistics.
+4. Calculated a simplified risk score using JavaScript.
+5. Determined the corresponding severity level.
+6. Generated an automated security notification through Telegram.
+
+Example result:
+
+```text
+✅ IP SECURITY CHECK
+
+IP: 8.8.8.8
+
+Malicious detections: 0
+Suspicious detections: 0
+
+Risk Score: 0/100
+Severity: LOW
+
+Status: No significant malicious activity detected.
+```
+
+> The risk score and severity classification are based on a simplified learning-project heuristic and are not official VirusTotal ratings.
+
+
 ## Security Considerations
 
 No API keys, bot tokens, or other sensitive credentials are stored in this repository.
