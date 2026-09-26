@@ -1,5 +1,7 @@
 # n8n Threat Intelligence Automation
 
+![n8n Threat Intelligence Automation](screenshots/Banner.png)
+
 A hands-on cybersecurity automation project developed to explore **workflow orchestration, threat intelligence integration, and automated security notifications** using n8n.
 
 ## Overview
